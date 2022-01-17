@@ -1,0 +1,31 @@
+{
+    "name": "bus-factor/laminas-doctrine",
+    "description": "Laminas doctrine package for easy doctrine integration",
+    "type": "library",
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true
+        }
+    },
+    "authors": [
+        {
+            "name": "Michael Leßnau",
+            "email": "michael.lessnau@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "BusFactor\\LaminasDoctrine\\": "src"
+        }
+    },
+    "require": {
+        "php": ">= 7.3",
+        "doctrine/annotations": "^1.13",
+        "doctrine/cache": "^1.11",
+        "doctrine/migrations": "^3.3",
+        "doctrine/orm": "^2.11",
+        "laminas/laminas-servicemanager": "^3.10",
+        "psr/container": "*"
+    }
+}
