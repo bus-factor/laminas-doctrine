@@ -9,9 +9,8 @@
 
 declare(strict_types=1);
 
-namespace BusFactor\LaminasDoctrine\Dbal;
+namespace BusFactor\LaminasDoctrine;
 
-use Doctrine\DBAL\Tools\Console\Command\RunSqlCommand;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -25,7 +24,9 @@ class ConsoleCommandProvider
     public static function provideCommands(ContainerInterface $container): array
     {
         return [
-            $container->get(RunSqlCommand::class),
+            ...\BusFactor\LaminasDoctrine\Dbal\ConsoleCommandProvider::provideCommands($container),
+            ...\BusFactor\LaminasDoctrine\Migration\ConsoleCommandProvider::provideCommands($container),
+            ...\BusFactor\LaminasDoctrine\Orm\ConsoleCommandProvider::provideCommands($container),
         ];
     }
 }

@@ -15,6 +15,7 @@ use Doctrine\Migrations\Tools\Console\Command\CurrentCommand;
 use Doctrine\Migrations\Tools\Console\Command\DiffCommand;
 use Doctrine\Migrations\Tools\Console\Command\DumpSchemaCommand;
 use Doctrine\Migrations\Tools\Console\Command\ExecuteCommand;
+use Doctrine\Migrations\Tools\Console\Command\GenerateCommand;
 use Doctrine\Migrations\Tools\Console\Command\LatestCommand;
 use Doctrine\Migrations\Tools\Console\Command\MigrateCommand;
 use Doctrine\Migrations\Tools\Console\Command\RollupCommand;
@@ -40,6 +41,7 @@ class ConsoleCommandProvider
             $container->get(DiffCommand::class),
             $container->get(DumpSchemaCommand::class),
             $container->get(ExecuteCommand::class),
+            $container->get(GenerateCommand::class),
             $container->get(LatestCommand::class),
             $container->get(ListCommand::class),
             $container->get(MigrateCommand::class),
