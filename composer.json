@@ -27,7 +27,7 @@
         "doctrine/cache": "^2.2",
         "doctrine/migrations": "^3.3",
         "doctrine/orm": "^2.11",
-        "laminas/laminas-servicemanager": "^3.10",
+        "laminas/laminas-servicemanager": "*",
         "psr/container": "*"
     }
 }
