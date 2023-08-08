@@ -31,6 +31,6 @@ class ConfigurationFactory implements FactoryInterface
         $paths = $config['doctrine']['orm']['entity_paths'];
         $isDevMode = $config['doctrine']['orm']['is_dev_mode'];
 
-        return Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
+        return Setup::createAttributeMetadataConfiguration($paths, $isDevMode);
     }
 }
