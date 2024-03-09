@@ -15,9 +15,9 @@ use Doctrine\DBAL\Connection;
 use Doctrine\ORM\Configuration;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMException;
-use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
 class EntityManagerFactory implements FactoryInterface
@@ -27,7 +27,7 @@ class EntityManagerFactory implements FactoryInterface
      * @throws NotFoundExceptionInterface
      * @throws ORMException
      */
-    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null): EntityManager
+    public function __invoke(ContainerInterface $container, string $requestedName, array|null $options = null): EntityManager
     {
         /** @var Configuration $configuration */
         $configuration = $container->get(Configuration::class);

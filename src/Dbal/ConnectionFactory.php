@@ -15,9 +15,9 @@ use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Exception;
 use Doctrine\ORM\Configuration;
-use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
 class ConnectionFactory implements FactoryInterface
@@ -27,7 +27,7 @@ class ConnectionFactory implements FactoryInterface
      * @throws NotFoundExceptionInterface
      * @throws Exception
      */
-    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null): Connection
+    public function __invoke(ContainerInterface $container, string $requestedName, array|null $options = null): Connection
     {
         /** @var array<string, array<string, mixed>> $config */
         $config = $container->get('config');

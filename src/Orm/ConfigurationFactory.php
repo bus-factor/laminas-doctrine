@@ -13,9 +13,9 @@ namespace BusFactor\LaminasDoctrine\Orm;
 
 use Doctrine\ORM\Configuration;
 use Doctrine\ORM\Tools\Setup;
-use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
 class ConfigurationFactory implements FactoryInterface
@@ -24,7 +24,7 @@ class ConfigurationFactory implements FactoryInterface
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null): Configuration
+    public function __invoke(ContainerInterface $container, string $requestedName, array|null $options = null): Configuration
     {
         /** @var array<string, array<string, mixed>> $config */
         $config = $container->get('config');
