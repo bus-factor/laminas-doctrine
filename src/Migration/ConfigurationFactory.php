@@ -50,7 +50,8 @@ class ConfigurationFactory implements FactoryInterface
 
         /** @var EntityManager $entityManager */
         $entityManager = $container->get(EntityManager::class);
-        $platformFqn = get_class($entityManager->getConnection()->getDriver()->getDatabasePlatform());
+        $connection = $entityManager->getConnection();
+        $platformFqn = get_class($connection->getDriver()->getDatabasePlatform($connection));
         $platformName = self::DOCTRINE_PLATFORM_FQN_TO_NAME[$platformFqn] ?? null;
 
         if (empty($platformName)) {
