@@ -14,7 +14,7 @@ namespace BusFactor\LaminasDoctrine\Orm;
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\Configuration;
 use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\ORMException;
+use Doctrine\ORM\Exception\MissingMappingDriverImplementation;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
@@ -25,7 +25,7 @@ class EntityManagerFactory implements FactoryInterface
     /**
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
-     * @throws ORMException
+     * @throws MissingMappingDriverImplementation
      */
     public function __invoke(ContainerInterface $container, string $requestedName, array|null $options = null): EntityManager
     {
@@ -34,6 +34,6 @@ class EntityManagerFactory implements FactoryInterface
         /** @var Connection $connection */
         $connection = $container->get(Connection::class);
 
-        return EntityManager::create($connection, $configuration);
+        return new EntityManager($connection, $configuration);
     }
 }
