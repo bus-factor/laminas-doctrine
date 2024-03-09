@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace BusFactor\LaminasDoctrine;
 
+use BusFactor\LaminasDoctrine\Orm\SingleManagerProviderFactory;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Tools\Console\ConnectionProvider;
 use Doctrine\DBAL\Tools\Console\ConnectionProvider\SingleConnectionProvider;
@@ -25,6 +26,7 @@ use BusFactor\LaminasDoctrine\Migration\ConfigurationFactory as MigrationsConfig
 use BusFactor\LaminasDoctrine\Migration\DependencyFactoryFactory;
 use BusFactor\LaminasDoctrine\Orm\ConfigurationFactory as OrmConfigurationFactory;
 use BusFactor\LaminasDoctrine\Orm\EntityManagerFactory;
+use Doctrine\ORM\Tools\Console\EntityManagerProvider;
 
 class ConfigProvider
 {
@@ -54,6 +56,7 @@ class ConfigProvider
                 SingleConnectionProvider::class => SingleConnectionProviderFactory::class,
                 // orm
                 EntityManager::class => EntityManagerFactory::class,
+                EntityManagerProvider::class => SingleManagerProviderFactory::class,
                 OrmConfiguration::class => OrmConfigurationFactory::class,
                 // migrations
                 MigrationsConfiguration::class => MigrationsConfigurationFactory::class,
