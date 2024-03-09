@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace BusFactor\LaminasDoctrine\Orm;
 
 use Doctrine\ORM\Configuration;
-use Doctrine\ORM\Tools\Setup;
+use Doctrine\ORM\ORMSetup;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
@@ -31,6 +31,6 @@ class ConfigurationFactory implements FactoryInterface
         $paths = $config['doctrine']['orm']['entity_paths'];
         $isDevMode = $config['doctrine']['orm']['is_dev_mode'];
 
-        return Setup::createAttributeMetadataConfiguration($paths, $isDevMode);
+        return ORMSetup::createAttributeMetadataConfiguration($paths, $isDevMode);
     }
 }
