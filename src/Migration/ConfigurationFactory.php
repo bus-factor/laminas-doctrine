@@ -16,7 +16,7 @@ use Doctrine\DBAL\Platforms\MySQL80Platform;
 use Doctrine\DBAL\Platforms\MySQLPlatform;
 use Doctrine\DBAL\Platforms\OraclePlatform;
 use Doctrine\DBAL\Platforms\PostgreSQLPlatform;
-use Doctrine\DBAL\Platforms\SqlitePlatform;
+use Doctrine\DBAL\Platforms\SQLitePlatform;
 use Doctrine\DBAL\Platforms\SQLServerPlatform;
 use Doctrine\Migrations\Configuration\Configuration;
 use Doctrine\Migrations\Metadata\Storage\TableMetadataStorageConfiguration;
@@ -35,7 +35,7 @@ class ConfigurationFactory implements FactoryInterface
         MySQLPlatform::class => 'Mysql',
         OraclePlatform::class => 'Oracle',
         PostgreSQLPlatform::class => 'PostgreSql',
-        SqlitePlatform::class => 'Sqlite',
+        SQLitePlatform::class => 'Sqlite',
         SQLServerPlatform::class => 'SqlServer',
     ];
 
