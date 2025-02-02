@@ -12,7 +12,10 @@ declare(strict_types=1);
 namespace BusFactor\LaminasDoctrine\Migration;
 
 use Doctrine\DBAL\Platforms\DB2Platform;
+use Doctrine\DBAL\Platforms\MariaDB1010Platform;
+use Doctrine\DBAL\Platforms\MariaDBPlatform;
 use Doctrine\DBAL\Platforms\MySQL80Platform;
+use Doctrine\DBAL\Platforms\MySQL84Platform;
 use Doctrine\DBAL\Platforms\MySQLPlatform;
 use Doctrine\DBAL\Platforms\OraclePlatform;
 use Doctrine\DBAL\Platforms\PostgreSQLPlatform;
@@ -31,7 +34,10 @@ class ConfigurationFactory implements FactoryInterface
 {
     private const DOCTRINE_PLATFORM_FQN_TO_NAME = [
         DB2Platform::class => 'Db2',
+        MariaDB1010Platform::class => 'MariaDb',
+        MariaDBPlatform::class => 'MariaDb',
         MySQL80Platform::class => 'Mysql',
+        MySQL84Platform::class => 'Mysql',
         MySQLPlatform::class => 'Mysql',
         OraclePlatform::class => 'Oracle',
         PostgreSQLPlatform::class => 'PostgreSql',
